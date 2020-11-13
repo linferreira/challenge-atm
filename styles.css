@@ -40,22 +40,8 @@ body {
   margin-bottom: 60px;
 }
 
-.main > .header .welcome {
-  display: flex;
-  flex-direction: column;
-  text-align: right;
-}
-
-.main > .header .welcome > span:nth-child(1) {
-  color: #01b4f5;
-}
-
-.main > .header .welcome > span:nth-child(2) {
-  color: #fff;
-}
-
 .main > .header h1 {
-  margin: 0;
+  margin-bottom: 15px;
   color: #fff;
   font-weight: 900;
 }
@@ -195,4 +181,91 @@ body {
 
 .main > .atm > .action .keyboard .line > .action.gray {
   background-color: #abb3ce;
+}
+
+/* MEDIA QUERY */
+@media (max-width: 1020px) {
+  /* GERAL */
+  .wrapper > .main {
+    width: 100%;
+    height: calc(100% + 400px);
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .main > .atm .account .withdraw {
+    width: 91%;
+    position: absolute;
+    bottom: -169px;
+    left: 4%;
+  }
+
+  /* HEADER */
+  .main > .header {
+    margin-bottom: 0;
+    width: 100%;
+  }
+
+  .main > .atm .account {
+    position: inherit;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+  }
+
+  /* BODY */
+
+  .main > .atm {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 800px) {
+  /* HEADER */
+  .main > .atm .account .withdraw {
+    width: 89%;
+    left: 5%;
+  }
+}
+
+@media (max-width: 660px) {
+  /* HEADER */
+  .main > .atm .account .withdraw {
+    width: 87%;
+    left: 6%;
+  }
+}
+
+@media (max-width: 500px) {
+  /* HEADER */
+  .main > .atm .account .withdraw {
+    width: 82%;
+    left: 8%;
+  }
+
+  .main > .atm .account {
+    flex-direction: column;
+  }
+
+  /* BODY */
+  .main > .atm > .action .keyboard .line > .action {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 380px) {
+  /* HEADER */
+  .main > .atm .account .withdraw {
+    width: 76%;
+    left: 11%;
+  }
+
+  /* BODY */
+  .main > .atm > .action .keyboard .line > .action {
+    font-size: 0.65rem;
+    font-weight: bold;
+  }
 }
