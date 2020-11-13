@@ -27,24 +27,26 @@ clear.addEventListener('click', () => {
 })
 
 function withdrawMoney(valueInitial) {
-  let money = valueInitial;
-  output.innerText = "";
+  let amount = valueInitial;
 
-  while (money > 0) {
-    if (money >= 100) {
-      money = money - 100;
-      output.innerText = output.innerText + ' R$ 100.00';
-    } else if (money >= 50) {
-      money = money - 50;
-      output.innerText = output.innerText + ' R$ 50.00';
-    } else if (money >= 20) {
-      money = money - 20;
-      output.innerText = output.innerText + ' R$ 20.00';
-    } else if (money >= 10) {
-      money = money - 10;
-      output.innerText = output.innerText + ' R$ 10.00';
+  const notesAvailable = [100, 50, 20, 10];
+  let currentTotal = 0;
+  let noteNow = 0;
+  let returnNotes = [];
+
+  while (currentTotal < amount) {
+    currentNote = notesAvailable[noteNow];
+    noteCount = Math.floor((amount - currentTotal) / currentNote);
+    currentTotal += noteCount * currentNote;
+    if (noteCount) {
+      returnNotes = returnNotes.concat((new Array(noteCount)).fill(` R$ ${currentNote}`));
     }
+    noteNow++;
   }
+
+  output.innerText = returnNotes
+
+  return;
 }
 
 confirm.addEventListener('click', () => {
